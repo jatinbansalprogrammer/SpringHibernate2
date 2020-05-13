@@ -1,5 +1,9 @@
 package test;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+
+import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
@@ -18,14 +22,22 @@ public class TestJDBC {
 
 		try {
 			session.beginTransaction();
-			
-			Student student = new Student("Ajay", "Kumar", "abc@123.com");
+
+
+			Student student = new Student("Vijay", "Garg", "mno@123.com");
 			session.save(student);
+
+
+			/*
+			 * Query query = session.createQuery("DELETE FROM Student WHERE ID=:id");
+			 * query.setParameter("id", 5); query.executeUpdate();
+			 */			
 			session.getTransaction().commit();
 		} catch (Exception e) {
 			e.printStackTrace();
-		}finally {
+		} finally {
 			factory.close();
+			System.out.println("");
 		}
 	}
 
