@@ -13,3 +13,8 @@ city varchar,
 primary key(id)
 );
 
+--To Add foreign key to Student Table.
+ALTER TABLE STUDENT
+  ADD FOREIGN KEY (ADDRESS_ID)
+  REFERENCES ADDRESS(ID);
+
