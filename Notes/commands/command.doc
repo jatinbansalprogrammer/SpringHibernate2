@@ -1,0 +1,2 @@
+#command to create new database in h2 db...after this command put new url for database and other cridentials
+java -cp h2-1.4.199.jar org.h2.tools.Shell 
