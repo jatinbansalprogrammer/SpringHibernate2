@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xsi:schemaLocation="
+		http://www.springframework.org/schema/beans
+    	http://www.springframework.org/schema/beans/spring-beans.xsd
+    	http://www.springframework.org/schema/context
+    	http://www.springframework.org/schema/context/spring-context.xsd
+    	http://www.springframework.org/schema/mvc
+        http://www.springframework.org/schema/mvc/spring-mvc.xsd
+        http://www.springframework.org/schema/util
+        http://www.springframework.org/schema/util/spring-util.xsd">
+        
+       <!--  <bean id="employee" class="com.springdemo.Employee">
+        	<property name="id" value="1"></property>
+        	<property name="name" value="priya"></property>
+        	<property name="empState" value="#{address.state}"></property>
+        	<property name="Address" value="#{address}"></property>
+        	<property name="fullAddress" value="#{address.getFAddress()}"></property>
+        	<property name="southIndian" value="#{address.state=='Odisha'?true:false}"></property>
+        	<property name="insuranceAmountEqualto10000" value="#{medicalInsurance.insuredAmount == 10000}"></property>
+        	<property name="insuranceAmountNotequalto10000" value="#{medicalInsurance.insuredAmount != 10000}"></property>
+        	<property name="insuranceAmountlessthan10000" value="#{medicalInsurance.insuredAmount lt 10000}"></property>
+        	<property name="insuranceAmountlessthanOrequalto10000" value="#{medicalInsurance.insuredAmount le 10000}"></property>
+        	<property name="insuranceAmountgreaterthan10000" value="#{medicalInsurance.insuredAmount gt 10000}"></property>
+        	<property name="insuranceAmountgreaterthanorequalto10000" value="#{medicalInsurance.insuredAmount ge 10000}"></property>
+        </bean>
+        
+        <bean id="medicalInsurance" class="com.springdemo.MedicalInsurance">
+        	<property name="insurancePolicyNumber" value="3"></property>
+        	<property name="insuredAmount" value="3000"></property>
+        </bean>
+        
+        <bean id="address" class="com.springdemo.Address">
+        	<property name="city" value="Bhubaneswar"></property>
+        	<property name="state" value="Odisha"></property>
+        	<property name="street" value="JaydevVihar"></property>
+        </bean>  -->
+        
+        <context:component-scan base-package="com.springdemo"></context:component-scan>
+        
+        <context:annotation-config></context:annotation-config>
+</beans>

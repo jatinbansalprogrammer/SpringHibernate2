@@ -3,6 +3,8 @@
 "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
 <hibernate-configuration>
 	<session-factory>
+	
+	
 
 		<property name="hibernate.dialect">
 			org.hibernate.dialect.H2Dialect
@@ -16,7 +18,7 @@
 
 		<property name="hibernate.connection.url">
 			<!-- jdbc:h2:tcp://localhost/~/School -->
-			jdbc:h2:tcp://localhost/~/School2
+			jdbc:h2:tcp://localhost/~/School2;DB_CLOSE_DELAY=-1;MVCC=TRUE
 		</property>
 
 
