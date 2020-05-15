@@ -29,7 +29,7 @@ public class Student {
 	private String email;
 
 	@OneToOne
-	@JoinColumn(name = "address_id")
+	//@JoinColumn(name = "address_id")
 	private Address address;
 
 	public Student() {
@@ -87,9 +87,13 @@ public class Student {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	/*
-	 * public Address getAddress() { return address; } public void
-	 * setAddress(Address address) { this.address = address; }
-	 */
+
+	public Address getAddress() {
+		return address;
+	}
+
+	public void setAddress(Address address) {
+		this.address = address;
+	}
 
 }

@@ -19,20 +19,26 @@ public class TestJDBC {
 
 		try {
 			session.beginTransaction();
-
-			Address address = new Address("Noida");
-			Student student = new Student("Priya", "Sharma", "abc@123", address);
 			
-			session.save(student);
+			/*
+			 * Address address = session.get(Address.class,2);
+			 * address.getStudent().setAddress(null); session.delete(address);
+			Address address = new Address("Gurgaon");
+			 */
+			Address a = session.get(Address.class, 5);
+			//a.setStudent(null);
+			session.delete(a);
 			
 			session.getTransaction().commit(); 	
+			
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
 			session.close();
 			factory.close();
-			System.out.println("");
+			System.out.println("+++++++++finally");
 		}
+		
 	}
 
 }
