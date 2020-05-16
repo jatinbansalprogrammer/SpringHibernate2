@@ -15,14 +15,14 @@
 			<version>3.8.1</version>
 			<scope>test</scope>
 		</dependency>
-		
+
 		<!-- https://mvnrepository.com/artifact/org.springframework/spring-webmvc -->
-	<dependency>
-	    <groupId>org.springframework</groupId>
-	    <artifactId>spring-webmvc</artifactId>
-	    <version>5.0.2.RELEASE</version>
-	</dependency>
-		
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-webmvc</artifactId>
+			<version>5.0.2.RELEASE</version>
+		</dependency>
+
 	</dependencies>
 	<build>
 		<finalName>SpringMvcHibernate</finalName>
@@ -35,6 +35,17 @@
 					<source>1.8</source>
 					<target>1.8</target>
 				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-site-plugin</artifactId>
+				<version>3.7.1</version>
+			</plugin>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-project-info-reports-plugin</artifactId>
+				<version>3.0.0</version>
 			</plugin>
 		</plugins>
 	</build>
