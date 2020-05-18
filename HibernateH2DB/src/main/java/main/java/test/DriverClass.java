@@ -1,41 +1,46 @@
 package main.java.test;
 
-import java.util.List;
+import java.beans.Introspector;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
-import com.entity.Address;
-import com.entity.Employee;
-
-
-
-
+import com.entity.Course;
+import com.entity.Instructor;
 
 public class DriverClass {
 
 	public static void main(String[] args) {
-		
 
-		SessionFactory factory= new Configuration().configure("hibernate.cfg.xml").addAnnotatedClass(Employee.class).addAnnotatedClass(Address.class).buildSessionFactory();
-		Session session=factory.getCurrentSession();
-		
+		SessionFactory factory = new Configuration().configure("hibernate.cfg.xml")
+				.addAnnotatedClass(Instructor.class).addAnnotatedClass(Course.class)
+				.buildSessionFactory();
+
+		Session session = factory.getCurrentSession();
+
 		try {
-		session.beginTransaction();
-		
-		Address address=new Address("Hydrabad");
-		Employee emp=new Employee("siva reddy", address);	
-		session.save(emp);
-		session.getTransaction().commit();
-		}catch(Exception e){
+			session.beginTransaction();
+
+			Instructor instructor= null;
+			Course course= null;
+			
+			instructor = session.get(Instructor.class, 6);
+			course = instructor.getCourseList().get(0);
+			course.setInstructor(null);
+			
+			instructor.getCourseList().remove(0);
+			
+			session.getTransaction().commit();
+		} catch (Exception e) {
 			e.printStackTrace();
-		}finally {
+		} finally {
 			session.close();
 			factory.close();
+
+			System.out.println("Finally");
 		}
-		
-		
+
 	}
 
 }

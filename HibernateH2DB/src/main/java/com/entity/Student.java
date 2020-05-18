@@ -1,5 +1,8 @@
 package com.entity;
 
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -27,19 +30,41 @@ public class Student {
 	@Column(name = "email")
 	private String email;
 
-	@OneToOne
-	//@JoinColumn(name = "address_id")
-	private Address address;
+	private List<Address> addressList;
 
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	public Student() {
 	}
 
-	public Student(int id, String firstName, String lastName, String email, Address address) {
-		this.id = id;
+	public Student(String firstName, String lastName, String email, List<Address> addressList) {
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.email = email;
-		this.address = address;
+		this.addressList = addressList;
+		
 	}
 
 	public Student(String firstName, String lastName, String email) {
@@ -52,7 +77,6 @@ public class Student {
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.email = email;
-		this.address = address;
 	}
 
 	public int getId() {
@@ -87,12 +111,13 @@ public class Student {
 		this.email = email;
 	}
 
-	public Address getAddress() {
-		return address;
+	public List<Address> getAddressList() {
+		return addressList;
 	}
 
-	public void setAddress(Address address) {
-		this.address = address;
+	public void setAddressList(List<Address> addressList) {
+		this.addressList = addressList;
 	}
+
 
 }
