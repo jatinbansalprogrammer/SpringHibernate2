@@ -17,7 +17,6 @@ import javax.persistence.Transient;
 public class Instructor {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name="id")
 	private Integer id;
 
 	@Column(name="first_name")
@@ -32,7 +31,7 @@ public class Instructor {
 	@Transient
 	private Integer InstructorDetailId;
 
-	@OneToMany(mappedBy = "instructor", cascade = CascadeType.ALL)
+	@OneToMany(mappedBy = "instructor", cascade = CascadeType.PERSIST)
 	private List<Course> courseList;
 
 	
