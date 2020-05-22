@@ -1,0 +1,16 @@
+href="abc">
+http://localhost:8080/SpringMvcHibernate/customer/ShowFormForAdd
+http://localhost:8080/SpringMvcHibernate/customer/abc
+
+href="/abc">
+http://localhost:8080/SpringMvcHibernate/customer/ShowFormForAdd
+http://localhost:8080/abc
+
+href="./abc">
+http://localhost:8080/SpringMvcHibernate/customer/ShowFormForAdd
+http://localhost:8080/SpringMvcHibernate/customer/abc
+
+
+href="//abc">
+http://localhost:8080/SpringMvcHibernate/customer/ShowFormForAdd
+http://abc

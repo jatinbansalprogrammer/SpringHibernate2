@@ -39,6 +39,7 @@
 					<th>firstName</th>
 					<th>LastName</th>
 					<th>Email</th>
+					<th>Action</th>
 				</tr>
 				</thead>
 				<tbody>
@@ -47,7 +48,8 @@
 					<tr>
 						<td>${listcustomer.first_name}</td>	
 						<td>${listcustomer.last_name}</td>		
-						<td>${listcustomer.email}</td>						
+						<td>${listcustomer.email}</td>		
+						<td><a href="<%=request.getContextPath() %>/customer/showFormForUpdate?id=${listcustomer.customerId}">Update</a></td>				
 					</tr>
 				</c:forEach>
 			</tbody>			

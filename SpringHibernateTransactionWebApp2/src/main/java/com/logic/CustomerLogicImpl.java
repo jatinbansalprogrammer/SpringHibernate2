@@ -31,4 +31,19 @@ public class CustomerLogicImpl implements CustomerLogic{
 		List<Customer> list=customerService.getCustomer();
 		return list;
 	}
+
+	@Override
+	public void saveCustomer(Customer customer) {
+		customerService.saveCustomer(customer);
+	}
+
+	@Override
+	public void updateCustomer(int id) {
+		customerService.updateCustomer(id);
+	}
+
+	@Override
+	public Customer getCustomer(int id) {
+		return customerService.getCustomer(id);
+	}
 }

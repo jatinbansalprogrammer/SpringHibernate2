@@ -6,7 +6,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.entity.Customer;
 import com.manager.CustomerManager;
@@ -29,10 +32,26 @@ public class CustomerController {
 	}
 	
 	@GetMapping("/ShowFormForAdd")
-	public String ShowFormForAdd() {
-		return "AddCustomer";
+	public String ShowFormForAdd(Model model) {
+		
+		Customer thecusotmer=new Customer();
+		model.addAttribute("customer", thecusotmer);
+		return "customer-form";
 		
 	}
 	
-
+	@PostMapping("/saveCustomer")
+	public String SaveCustomer(@ModelAttribute("customer") Customer thecustomer){
+		customermanager.saveCustomer(thecustomer);
+		return "redirect:/customer/list";
+	}
+	
+	@RequestMapping("/showFormForUpdate")
+	public String updateCustomer(@RequestParam("customerId") int id,Model model){
+		Customer customer=customermanager.getCustomer(id);
+		model.addAttribute("customer", customer);
+		return "customer-form";
+	}
+	
+	
 }
