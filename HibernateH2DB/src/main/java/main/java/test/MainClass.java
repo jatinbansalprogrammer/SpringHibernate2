@@ -17,19 +17,25 @@ public class MainClass {
 	public static void main(String[] args) {
 
 		SessionFactory factory= new Configuration().configure("hibernate.cfg.xml")
-				.addAnnotatedClass(Instructor1.class).addAnnotatedClass(Course1.class).addAnnotatedClass(InstructorDetail.class)
+				.addAnnotatedClass(Instructor1.class).addAnnotatedClass(Course1.class)
 				.buildSessionFactory();
 		Session session=factory.getCurrentSession();
 		try{
 			session.beginTransaction();
-			List<Course1> courselist=new ArrayList<Course1>();
-			Course1 coursedata;
-			coursedata=new Course1("java");
-			courselist.add(coursedata);
-			coursedata=new Course1(".net");
-			courselist.add(coursedata);
-			Instructor1 instructor=new Instructor1("roni", "Sahoo", "rs@abc",courselist);
+
+			Instructor1 instructor = new Instructor1("roni", "Sahoo", "rs@abc");
+
+			Course1 coursedata = new Course1("java");
+			instructor.addCourse(coursedata);
+			Course1 coursedata2 = new Course1(".net");
+			instructor.addCourse(coursedata2);
+
 			session.save(instructor);
+			 
+			/*
+			 * Instructor1 instructor=session.get(Instructor1.class,33);
+			 * System.out.println(instructor.getCourselist()); session.delete(instructor);
+			 */
 			session.getTransaction().commit();
 		}catch (Exception e) {
 			e.printStackTrace();

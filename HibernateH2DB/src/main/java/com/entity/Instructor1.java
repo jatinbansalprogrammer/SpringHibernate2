@@ -31,11 +31,12 @@ public class Instructor1 {
 	
 	/*@OneToOne(cascade=CascadeType.ALL)
 	@JoinColumn(name="INSTRUTOR_DETAIL_ID ")*/
+	
 	@Transient
 	InstructorDetail instructordetail;
 	
 	@OneToMany(mappedBy="instructor1" ,cascade=CascadeType.ALL)
-	List<Course> courselist;
+	List<Course1> courselist;
 	
 
 	
@@ -44,6 +45,16 @@ public class Instructor1 {
 	}
 	
 	
+	
+	public Instructor1(String firstname, String lastname, String email) {
+		super();
+		this.firstname = firstname;
+		this.lastname = lastname;
+		this.email = email;
+	}
+
+
+
 	public Instructor1(String firstname, String lastname, String email, List<Course1> courselist) {
 		super();
 		this.firstname = firstname;
@@ -117,7 +128,8 @@ public class Instructor1 {
 		this.instructordetail = instructordetail;
 	}
 
-
+	
+	
 	/**
 	 * @return the courselist
 	 */
@@ -137,12 +149,12 @@ public class Instructor1 {
 	 * @return the instructordetailid
 	 */
 
-	public void addCourse(Course course) {
+	public void addCourse(Course1 course) {
 		if(courselist == null) {
-			courselist = new ArrayList<Course>();
+			courselist = new ArrayList<Course1>();
 		}
 		courselist.add(course);
-		course.setInstructor(this);
+		course.setInstructor1(this);
 	}
 	
 }

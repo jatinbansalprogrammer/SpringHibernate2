@@ -55,8 +55,12 @@ public class Course1 {
 	public void setTitle(String title) {
 		this.title = title;
 	}
-	
-	
-	
 
+	public Instructor1 getInstructor1() {
+		return instructor1;
+	}
+
+	public void setInstructor1(Instructor1 instructor1) {
+		this.instructor1 = instructor1;
+	}
 }
