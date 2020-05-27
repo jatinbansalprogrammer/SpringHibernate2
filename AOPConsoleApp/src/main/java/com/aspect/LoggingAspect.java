@@ -16,25 +16,32 @@ import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
 @Aspect
-@Component
+@Component("loggingAspect")
 @Order(2)
 public class LoggingAspect {
 
-	@Pointcut("execution(* com.service.*.*(..))")
-	private void allMethodsInServicePackage() {}
+	/*
+	 * @Pointcut("execution(* com.service.*.*(..))") private void
+	 * allMethodsInServicePackage() {}
+	 * 
+	 * 
+	 * @Pointcut("execution(* com.service.*.get*())") private void
+	 * gettersInServicePackage() {}
+	 * 
+	 * @Pointcut("execution(* com.service.*.set*(*))") private void
+	 * settersInServicePackage() {}
+	 * 
+	 * @Pointcut("allMethodsInServicePackage() && !(gettersInServicePackage() || settersInServicePackage())"
+	 * ) private void allMethodsExceptGettersSettersInServicePackage() {}
+	 */
 	
-
-	@Pointcut("execution(* com.service.*.get*())")
-	private void gettersInServicePackage() {}
-
-	@Pointcut("execution(* com.service.*.set*(*))")
-	private void settersInServicePackage() {}
-
-	@Pointcut("allMethodsInServicePackage() && !(gettersInServicePackage() || settersInServicePackage())")
-	private void allMethodsExceptGettersSettersInServicePackage() {}
-
+	@Pointcut("execution(public * get*(..))")
+	private void a() {}
 	
-	
+	@Before("a()")
+	public void before() {
+		System.out.println("++++++++++++++++++Before Advice for Logging.");
+	}
 	/*
 	 * @Before("allMethodsExceptGettersSettersInServicePackage()") public void
 	 * before(JoinPoint joinPoint) {
@@ -54,21 +61,18 @@ public class LoggingAspect {
 	 * after(JoinPoint joinPoint) {
 	 * System.out.println("++++++++++++++++++After for Logging."); }
 	 */
-	@Around("allMethodsExceptGettersSettersInServicePackage()")
-	public List<String> around(ProceedingJoinPoint proceedingjoinPoint) throws Throwable{
-		System.out.println("++++++++++++++++++Around advice before for Logging.");
-		long start = System.currentTimeMillis();
-		try {
-			proceedingjoinPoint.proceed();
-		} catch (Throwable e) {
-			//Logging into log file.
-			//Notify DevOps team by email.
-		}
-		long end = System.currentTimeMillis();
-		System.out.println("Milliseconds to Process: " + (end - start));
-		System.out.println("++++++++++++++++++Around advice after for Logging.");
-		return Arrays.asList("a");
-	}
+	/*
+	 * @Around("allMethodsExceptGettersSettersInServicePackage()") public
+	 * List<String> around(ProceedingJoinPoint proceedingjoinPoint) throws
+	 * Throwable{
+	 * System.out.println("++++++++++++++++++Around advice before for Logging.");
+	 * long start = System.currentTimeMillis(); try { proceedingjoinPoint.proceed();
+	 * } catch (Throwable e) { //Logging into log file. //Notify DevOps team by
+	 * email. throw e; } long end = System.currentTimeMillis();
+	 * System.out.println("Milliseconds to Process: " + (end - start));
+	 * System.out.println("++++++++++++++++++Around advice after for Logging.");
+	 * return Arrays.asList("a"); }
+	 */
 	
 	
 }

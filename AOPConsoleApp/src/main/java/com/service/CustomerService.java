@@ -11,7 +11,7 @@ import org.springframework.stereotype.Component;
 import com.dao.CustomerDAO;
 import com.entity.Customer;
 
-@Component
+@Component("customService")
 public class CustomerService {
 	@Autowired
 	CustomerDAO customerDAO;
@@ -30,15 +30,18 @@ public class CustomerService {
 	 * }
 	 */
 	
-	
+	public String setAb(Customer customer) {
+		return "Customer Object";
+	}
 	public String getCustomerById(Customer customer) {
 		return "Customer Object";
 	}
 	public List<String> getCustomerById(Customer customer, int i) {
 		
-		List<String> list = null;//new ArrayList<String>();
+		List<String> list = new ArrayList<String>();
 		list.add("a");
 		list.add("b");
+		customerDAO.getCustomerById(null);
 		return list;
 	}
 	

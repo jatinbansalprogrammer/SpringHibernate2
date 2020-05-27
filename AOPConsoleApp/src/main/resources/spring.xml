@@ -22,5 +22,22 @@
 	<!-- Add support for component scanning -->
 	<context:component-scan base-package="com" />
 
- 	<aop:aspectj-autoproxy />
+ 	<aop:aspectj-autoproxy proxy-target-class="true"/>
+ 	
+ 	
+ 	
+ 	<!-- <aop:config>
+      <aop:aspect id = "log" ref = "loggingAspect">
+         <aop:pointcut id = "selectAll" 
+         expression = "execution(* set*(..))"/>
+         <aop:before pointcut-ref = "selectAll" method = "before"/>         
+      </aop:aspect>
+   </aop:config>
+   
+   
+   
+ 	<bean id="test" class="com.test.Test">
+ 		<property name="customerService" ref="customService"></property>
+ 		
+ 	</bean> -->
 </beans>
