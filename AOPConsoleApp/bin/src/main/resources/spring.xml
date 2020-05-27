@@ -16,36 +16,11 @@
         http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd
         http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
 
-		<context:annotation-config />
-		
-		
-		<!-- Add support for component scanning -->
-		<context:component-scan base-package="com" />
+	<context:annotation-config />
 	
-<<<<<<< HEAD
 	
 	<!-- Add support for component scanning -->
 	<context:component-scan base-package="com" />
 
- 	<aop:aspectj-autoproxy proxy-target-class="true"/>
- 	
- 	
- 	
- 	<!-- <aop:config>
-      <aop:aspect id = "log" ref = "loggingAspect">
-         <aop:pointcut id = "selectAll" 
-         expression = "execution(* set*(..))"/>
-         <aop:before pointcut-ref = "selectAll" method = "before"/>         
-      </aop:aspect>
-   </aop:config>
-   
-   
-   
- 	<bean id="test" class="com.test.Test">
- 		<property name="customerService" ref="customService"></property>
- 		
- 	</bean> -->
-=======
-	 	<aop:aspectj-autoproxy />
->>>>>>> branch 'master' of https://github.com/jatinbansalprogrammer/SpringHibernate2.git
+ 	<aop:aspectj-autoproxy />
 </beans>

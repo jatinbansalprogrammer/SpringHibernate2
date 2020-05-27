@@ -46,4 +46,9 @@ public class CustomerLogicImpl implements CustomerLogic{
 	public Customer getCustomer(int id) {
 		return customerService.getCustomer(id);
 	}
+
+	@Override
+	public void deleteCustomer(int id) {
+		customerService.deleteCustomer(id);
+	}
 }

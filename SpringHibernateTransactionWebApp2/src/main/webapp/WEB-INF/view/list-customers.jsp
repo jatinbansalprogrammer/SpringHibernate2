@@ -25,6 +25,7 @@
 	<div id="wrapper">
 		<div id="header">
 			<h2>CRM - Customer Relationship Manager</h2>
+			<h3>${message}</h3>
 		</div>
 	</div>
 	
@@ -49,16 +50,26 @@
 						<td>${listcustomer.first_name}</td>	
 						<td>${listcustomer.last_name}</td>		
 						<td>${listcustomer.email}</td>		
-						<td><a href="<%=request.getContextPath() %>/customer/showFormForUpdate?id=${listcustomer.customerId}">Update</a></td>				
+						<td><a href="<%=request.getContextPath() %>/customer/showFormForUpdate?customerId=${listcustomer.customerId}">Update</a>
+						<a href="<%=request.getContextPath() %>/customer/deleteCustomer?customerId=${listcustomer.customerId}&firstname=${listcustomer.first_name}" onclick="if(!(confirm('are you sure you want to delete this user'))) return false" id="clickdelete">Delete</a></td>				
 					</tr>
 				</c:forEach>
 			</tbody>			
 			</table>
 				
 		</div>
+		<div>
+		</div>
 	
 	</div>
 	
+	<!-- <script>
+		$(document).ready(function(){
+			$("#clickdelete").click(function(){
+				alert("are you sure you want to delete this customer");
+			})
+		});
+	</script> -->
 
 </body>
 
@@ -77,4 +88,13 @@
 	$(document).ready(function() {
 	    $('#example').DataTable();
 	} );
+	
+	function abc(firstName,event){
+		debugger;
+		var b = confirm("Do you want to delete: " + firstName);
+		if(!b){
+			//event.preventDefault();
+			return false;
+		}
+	}
 </script>

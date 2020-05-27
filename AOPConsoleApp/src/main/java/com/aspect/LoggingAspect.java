@@ -35,6 +35,7 @@ public class LoggingAspect {
 	 * ) private void allMethodsExceptGettersSettersInServicePackage() {}
 	 */
 	
+<<<<<<< HEAD
 	@Pointcut("execution(public * get*(..))")
 	private void a() {}
 	
@@ -42,6 +43,23 @@ public class LoggingAspect {
 	public void before() {
 		System.out.println("++++++++++++++++++Before Advice for Logging.");
 	}
+=======
+
+	@Pointcut("execution(* com.service.*.get*())")
+	private void gettersInServicePackage() {}
+
+	@Pointcut("execution(* com.service.*.set*(*))")
+	private void settersInServicePackage() {}
+
+	@Pointcut("allMethodsInServicePackage() && !(gettersInServicePackage() || settersInServicePackage())")
+	private void allMethodsExceptGettersSettersInServicePackage() {}
+
+	@Before("execution(* * get*())")
+	public void beforeAspect(){
+		System.out.println("logging before aspect...");
+	}
+	
+>>>>>>> branch 'master' of https://github.com/jatinbansalprogrammer/SpringHibernate2.git
 	/*
 	 * @Before("allMethodsExceptGettersSettersInServicePackage()") public void
 	 * before(JoinPoint joinPoint) {

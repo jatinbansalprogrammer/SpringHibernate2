@@ -12,6 +12,7 @@
 	<h3>Save Customer</h3>
 	<table>
 		<tbody>
+			<form:hidden path="customerId"/>
 			<tr>
 				<td>
 					<label>First Name:</label>
