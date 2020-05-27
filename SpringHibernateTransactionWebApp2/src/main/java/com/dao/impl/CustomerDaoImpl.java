@@ -37,13 +37,9 @@ public class CustomerDaoImpl implements CustomerDao {
 	@Override
 	public void saveCustomer(Customer customer) {
 		Session session=sessionFactory.getCurrentSession();
-		session.save(customer);
+		session.saveOrUpdate(customer);
 	}
 
-	@Override
-	public void updateCustomer(int id) {
-		
-	}
 
 	@Override
 	public Customer getCustomer(int id) {
@@ -52,5 +48,19 @@ public class CustomerDaoImpl implements CustomerDao {
 		return customer;
 		
 	}
+	
+	public void deleteCustomer(int id){
+		Session session=sessionFactory.getCurrentSession();
+		Query<Customer> query=session.createQuery("delete from Customer c where c.customerId =:id");
+		query.setParameter("id", id);
+		query.executeUpdate();
+	}
+
+	@Override
+	public void updateCustomer(int id) {
+		// TODO Auto-generated method stub
+		
+	}
+
 
 }

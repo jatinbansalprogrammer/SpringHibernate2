@@ -41,4 +41,10 @@ public class CustomerManagerImpl implements CustomerManager{
 		return customerlogic.getCustomer(id);
 	}
 
+	@Transactional
+	@Override
+	public void deleteCustomer(int id) {
+		customerlogic.deleteCustomer(id);
+	}
+
 }

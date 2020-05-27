@@ -10,6 +10,7 @@ public interface CustomerManager {
 	public void saveCustomer(Customer thecustomer);
 	public void updateCustomer(int id);
 	public Customer getCustomer(int id);
+	public void deleteCustomer(int id);
 	
 
 }

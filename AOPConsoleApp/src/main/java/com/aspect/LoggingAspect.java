@@ -33,7 +33,10 @@ public class LoggingAspect {
 	@Pointcut("allMethodsInServicePackage() && !(gettersInServicePackage() || settersInServicePackage())")
 	private void allMethodsExceptGettersSettersInServicePackage() {}
 
-	
+	@Before("execution(* * get*())")
+	public void beforeAspect(){
+		System.out.println("logging before aspect...");
+	}
 	
 	/*
 	 * @Before("allMethodsExceptGettersSettersInServicePackage()") public void

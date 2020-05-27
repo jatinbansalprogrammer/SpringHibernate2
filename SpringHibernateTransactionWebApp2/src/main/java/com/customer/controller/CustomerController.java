@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.entity.Customer;
 import com.manager.CustomerManager;
@@ -51,6 +52,14 @@ public class CustomerController {
 		Customer customer=customermanager.getCustomer(id);
 		model.addAttribute("customer", customer);
 		return "customer-form";
+	}
+	
+	@RequestMapping("/deleteCustomer")
+	public String deleteCustomer(@RequestParam("customerId") int id,@RequestParam("firstname") String firstname,Model model,RedirectAttributes redirectAttributes){
+		customermanager.deleteCustomer(id);
+		
+		redirectAttributes.addFlashAttribute("message", firstname+" has been deleted");
+		return "redirect:/customer/list";
 	}
 	
 	
